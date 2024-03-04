@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Fontonic</title>
+    <meta charset='UTF-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0" />
+    <link rel="stylesheet" href="popup.css">
+    <script defer src="../js/popup.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="head">
+            <div class="title">
+                <img src="../res/icons/favicon-96x96.png">
+                <h2>Fontonic</h2>
+            </div>
+            <div class="support">
+                <button><span style="font-size: 1.2rem;margin-right: 0.2rem;" class="material-symbols-outlined">
+                        favorite
+                    </span><span class="support-btn-text">Support</span></button>
+            </div>
+        </div>
+        <div class="main">
+            <p>More fonts can be downloaded from sites like <a target="_blank" href="https://fonts.google.com/">Google
+                    Fonts</a> or <a target="_blank" href="https://www.dafont.com/">DaFont</a>.
+            </p>
+            <p>You can report unsupported websites <a target="_blank"
+                    href="https://forms.gle/3eqT9NU3mGHNjtyD8">here</a>.</p>
+            <p>Firefox doesn't support loading installed fonts yet, so you'll have to type 😓
+            </p>
+            <p>Tip: Refresh if you don't see any changes.</p>
+            <form name="fonts">
+                <label for="serif">Serif</label>
+                <input spellcheck="false" id="serif" name="serif" type="text" placeholder="Default">
+                <label for="sans_serif">Sans-serif</label>
+                <input spellcheck="false" id="sans_serif" name="san_serif" type="text" placeholder="Default">
+                <label for="monospace">Monospace</label>
+                <input spellcheck="false" id="monospace" name="monospace" type="text" placeholder="Default">
+                <button type="submit" class="apply">Apply Selection</button>
+            </form>
+            <div class="control">
+                <button class="icon-btn">
+                    <span class="material-symbols-outlined">history</span>
+                    <span id="restore-btn" class="btn-text">Restore</span>
+                </button>
+            </div>
+        </div>
+        <div class="support-slide">
+            <p>Thank you for using Fontonic ❤</p>
+            <button>Support via PayPal</button>
+            <button>Buy Me A Coffee</button>
+            <button>Star on GitHub</button>
+            <button>Get in touch</button>
+        </div>
+    </div>
+</body>
+
+</html>
