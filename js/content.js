@@ -1,18 +1,3 @@
-const setLink = (href, rel, isCrossOrigin) => {
-    const link = document.createElement("link");
-    link.href = href;
-    link.rel = rel;
-    if (isCrossOrigin) link.crossOrigin = "crossorigin";
-    document.head.appendChild(link);
-};
-
-setLink("https://fonts.googleapis.com", "preconnect", false);
-setLink("https://fonts.gstatic.com", "preconnect", true);
-
-const googleFontsURL =
-    "https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inter:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap";
-
-setLink(googleFontsURL, "stylesheet", false);
 const changeFontFamily = (node, serif, sansSerif, monospace) => {
     if (node.nodeType === 1) {
         const computedStyle = window.getComputedStyle(node);
