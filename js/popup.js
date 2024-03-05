@@ -68,10 +68,11 @@ supportButton.addEventListener("click", () => {
 
 // Handing main form
 fontSelectionForm.addEventListener("submit", (e) => {
+    console.log("Submit Button Clicked");
     e.preventDefault();
-    const serifValue = serifInput.value;
-    const sansSerifValue = sansSerifInput.value;
-    const monospaceValue = monospaceInput.value;
+    const serifValue = serifSelect.value;
+    const sansSerifValue = sansSerifSelect.value;
+    const monospaceValue = monospaceSelect.value;
     if (
         !serifValue.length &&
         !sansSerifValue.length &&
@@ -140,9 +141,13 @@ fontSelectionForm.addEventListener("submit", (e) => {
 
 const updatePlaceholders = (value) => {
     // Placeholder value
-    serifPlaceholder = value.serif;
-    sansSerifPlaceholder = value.sans_serif;
-    monospacePlaceholder = value.monospace;
+    serifPlaceholder.innerHTML = value.serif;
+    sansSerifPlaceholder.innerHTML = value.sans_serif;
+    monospacePlaceholder.innerHTML = value.monospace;
+
+    serifPlaceholder.value = value.serif;
+    sansSerifPlaceholder.value = value.sans_serif;
+    monospacePlaceholder.value = value.monospace;
 };
 // Populating placeholder values
 browser.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
