@@ -12,6 +12,9 @@ const fontSelectionForm = document.forms["fonts"];
 const serifSelect = fontSelectionForm.elements["serif"];
 const sansSerifSelect = fontSelectionForm.elements["sans_serif"];
 const monospaceSelect = fontSelectionForm.elements["monospace"];
+const serifPlaceholder = document.querySelector("#serif_placeholder");
+const sansSerifPlaceholder = document.querySelector("#sans_serif_placeholder");
+const monospacePlaceholder = document.querySelector("#monospace_placeholder");
 
 // Load fonts into the  dropdowns
 const populateFonts = (element) => {
@@ -135,62 +138,11 @@ fontSelectionForm.addEventListener("submit", (e) => {
     );
 });
 
-paymentButtons[0].addEventListener("click", () => {
-    browser.tabs.query({ active: true, lastFocusedWindow: true }).then(
-        (tabs) => {
-            const port = browser.tabs.connect(tabs[0].id);
-            port.postMessage({
-                type: "redirect",
-                data: {
-                    redirect_url:
-                        "https://paypal.me/amkhrjee?country.x=IN&locale.x=en_GB",
-                },
-            });
-        },
-        (error) => {
-            console.error(error);
-        },
-    );
-});
-paymentButtons[1].addEventListener("click", () => {
-    browser.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
-        const port = browser.tabs.connect(tabs[0].id);
-        port.postMessage({
-            type: "redirect",
-            data: {
-                redirect_url: "https://www.buymeacoffee.com/amkhrjee",
-            },
-        });
-    });
-});
-paymentButtons[2].addEventListener("click", () => {
-    browser.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
-        const port = browser.tabs.connect(tabs[0].id);
-        port.postMessage({
-            type: "redirect",
-            data: {
-                redirect_url: "https://github.com/amkhrjee/fontonic-firefox",
-            },
-        });
-    });
-});
-paymentButtons[3].addEventListener("click", () => {
-    browser.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
-        const port = browser.tabs.connect(tabs[0].id);
-        port.postMessage({
-            type: "redirect",
-            data: {
-                redirect_url: "https://linktr.ee/amkhrjee",
-            },
-        });
-    });
-});
-
 const updatePlaceholders = (value) => {
     // Placeholder value
-    serifInput.placeholder = value.serif;
-    sansSerifInput.placeholder = value.sans_serif;
-    monospaceInput.placeholder = value.monospace;
+    serifPlaceholder = value.serif;
+    sansSerifPlaceholder = value.sans_serif;
+    monospacePlaceholder = value.monospace;
 };
 // Populating placeholder values
 browser.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
