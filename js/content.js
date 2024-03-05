@@ -1,3 +1,4 @@
+let areFontsSet = false;
 const setLink = (href, rel, isCrossOrigin) => {
     const link = document.createElement("link");
     link.href = href;
@@ -8,27 +9,46 @@ const setLink = (href, rel, isCrossOrigin) => {
 
 setLink("https://fonts.googleapis.com", "preconnect", false);
 setLink("https://fonts.gstatic.com", "preconnect", true);
-setLink(
-    "https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap",
-    "stylesheet",
-    false
-);
 
-let originalSerif, originalSansSerif, originalMonospace;
+const getGoogleFontsURL = (typeface) => {
+    const stub = typeface.split(" ").join("+");
+    return `https://fonts.googleapis.com/css2?family=${stub}&display=swap`;
+};
+
 const changeFontFamily = (node, serif, sansSerif, monospace) => {
+    if (!areFontsSet) {
+        const serifURL = getGoogleFontsURL(serif);
+        const sansSerifURL = getGoogleFontsURL(sansSerif);
+        const monospaceURL = getGoogleFontsURL(monospace);
+
+        if (serifURL && serif != "Default") {
+            setLink(serifURL, "stylesheet", false);
+        }
+
+        if (sansSerifURL && sansSerif != "Default") {
+            setLink(sansSerifURL, "stylesheet", false);
+        }
+
+        if (monospaceURL && monospace != "Default") {
+            setLink(monospaceURL, "stylesheet", false);
+        }
+
+        areFontsSet = true;
+    }
+
     if (node.nodeType === 1) {
         const computedStyle = window.getComputedStyle(node);
         const fontFamily = computedStyle.getPropertyValue("font-family");
         if (fontFamily) {
             if (fontFamily.includes("sans-serif") && sansSerif != "Default") {
-                node.style.fontFamily = "'Inter'";
+                node.style.fontFamily = `'${sansSerif}'`;
             } else if (fontFamily.includes("serif") && serif != "Default") {
-                node.style.fontFamily = "'Inter'";
+                node.style.fontFamily = `'${serif}'`;
             } else if (
                 fontFamily.includes("monospace") &&
                 monospace != "Default"
             ) {
-                node.style.fontFamily = `'${monospace}', ${originalMonospace}`;
+                node.style.fontFamily = `'${monospace}'`;
             }
         }
     }
@@ -48,6 +68,7 @@ browser.runtime.sendMessage(message, undefined, (response) => {
         const serif = response.data.serif;
         const sans_serif = response.data.sans_serif;
         const monospace = response.data.monospace;
+        areFontsSet = false;
         changeFontFamily(document.body, serif, sans_serif, monospace);
     } else if (response.type === "none") {
         console.log("Font not set for site");
@@ -62,6 +83,7 @@ browser.runtime.onConnect.addListener((port) => {
                 const serif = message.data.serif;
                 const sans_serif = message.data.sans_serif;
                 const monospace = message.data.monospace;
+                areFontsSet - false;
                 changeFontFamily(document.body, serif, sans_serif, monospace);
             } else if (message.type === "restore") {
                 location.reload();
