@@ -9,9 +9,30 @@ const paymentButtons = document.querySelectorAll(".support-slide>button");
 const control = document.querySelector(".control");
 const restoreButton = document.querySelector("#restore-btn");
 const fontSelectionForm = document.forms["fonts"];
-const serifInput = fontSelectionForm.elements["serif"];
-const sansSerifInput = fontSelectionForm.elements["sans_serif"];
-const monospaceInput = fontSelectionForm.elements["monospace"];
+const serifSelect = fontSelectionForm.elements["serif"];
+const sansSerifSelect = fontSelectionForm.elements["sans_serif"];
+const monospaceSelect = fontSelectionForm.elements["monospace"];
+
+// Load fonts into the  dropdowns
+const populateFonts = (element) => {
+    [
+        "Inter",
+        "Nunito",
+        "Vollkorn",
+        "Playfair",
+        "Source Code Pro",
+        "Fira Code",
+    ].forEach((font) => {
+        const option = document.createElement("option");
+        option.value = font;
+        option.textContent = font;
+        element.appendChild(option);
+    });
+};
+
+populateFonts(serifSelect);
+populateFonts(sansSerifSelect);
+populateFonts(monospaceSelect);
 
 // Show Support Page
 let isSupportPageOpen = false;
@@ -110,7 +131,7 @@ fontSelectionForm.addEventListener("submit", (e) => {
         },
         (error) => {
             console.error(error);
-        }
+        },
     );
 });
 
@@ -128,7 +149,7 @@ paymentButtons[0].addEventListener("click", () => {
         },
         (error) => {
             console.error(error);
-        }
+        },
     );
 });
 paymentButtons[1].addEventListener("click", () => {
