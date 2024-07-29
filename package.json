@@ -16,7 +16,6 @@
   "author": "amkhrjee",
   "license": "GPL-3.0-only",
   "devDependencies": {
-    "prettier": "^3.2.5",
-    "web-ext": "^8.2.0"
+    "prettier": "^3.2.5"
   }
 }
