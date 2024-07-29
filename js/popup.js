@@ -39,7 +39,6 @@ const populateFonts = (element) => {
         "Carrois Gothic SC",
         "Source Sans Pro",
         "One UI Sans App VF",
-        "New SEC Num App VF"
     ].forEach((font) => {
         const option = document.createElement("option");
         option.value = font;

@@ -20,6 +20,7 @@ const changeFontFamily = (node, serif, sansSerif, monospace) => {
         changeFontFamily(childNode, serif, sansSerif, monospace);
     }
 };
+
 let message = {
     action: "on-page-load",
     domain: window.location.hostname,
