@@ -1,14 +1,17 @@
 {
   "name": "fontonic-firefox-android",
   "version": "1.0.0",
-  "description": "",
+  "description": "Firefox Android Add-On for Fontonic",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "firefox add-on",
-    "firefox for android add-on"
+    "firefox for android add-on",
+    "fontonic",
+    "change fonts",
+    "typography"
   ],
   "author": "amkhrjee",
   "license": "GPL-3.0-only",
