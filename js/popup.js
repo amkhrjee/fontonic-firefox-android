@@ -28,6 +28,9 @@ const populateFonts = (element) => {
     "Fira Code",
     "Comic Neue",
 
+    // New
+    "Merriweather",
+
     // Pre-installed fonts
     "Cutive Mono",
     "Noto Serif",
