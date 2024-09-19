@@ -4,7 +4,8 @@
   "description": "Firefox Android Add-On for Fontonic",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tailwind": "npx tailwindcss -i input.css -o ./popup/popup.css --watch",
+    "tsc": "tsc --watch -p tsconfig.json"
   },
   "keywords": [
     "firefox add-on",
@@ -16,6 +17,11 @@
   "author": "amkhrjee",
   "license": "GPL-3.0-only",
   "devDependencies": {
-    "prettier": "^3.2.5"
+    "prettier": "^3.2.5",
+    "tailwindcss": "^3.4.12"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.15",
+    "daisyui": "^4.12.10"
   }
 }
