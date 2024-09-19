@@ -30,6 +30,8 @@ const populateFonts = (element) => {
 
     // New
     "Merriweather",
+    "Atkinson Hyperlegible",
+    // "DejaVu Sans Mono",
 
     // Pre-installed fonts
     "Cutive Mono",
