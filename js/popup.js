@@ -291,11 +291,12 @@ const populateFonts = (element) => {
     "Source Code Pro",
     "Fira Code",
     "Comic Neue",
-    // New
     "Merriweather",
     "Atkinson Hyperlegible",
     "Charis SIL",
-    // "DejaVu Sans Mono",
+    "Atkinson Hyperlegible Next",
+    "Fantasque Sans Mono",
+    "Lexend",
     // Pre-installed fonts
     "Cutive Mono",
     "Noto Serif",
