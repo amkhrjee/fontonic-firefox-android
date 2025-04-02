@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "tailwind": "npx tailwindcss -i input.css -o ./popup/popup.css --watch",
-    "tsc": "tsc --watch -p tsconfig.json"
+    "build": "web-ext build -i=\"tailwind*\" input.css \"*.md\" \"package*.json\" LICENSE --overwrite-dest"
   },
   "keywords": [
     "firefox add-on",
